@@ -1,0 +1,24 @@
+Set-Location -Path "env:"
+dir
+Get-PSDrive
+
+Set-Locaiton -Path "RCJOHN19:"
+cd .\Enviroment
+
+Get-Item .
+Get-ItemProperty .
+
+Get-ItemProperty . | Select Path
+Get-ItemProperty Value -Name Path
+
+$cPath = Get-ItemPropertyValue -Name Path
+$cPath -like "*SolidWorks*"
+
+$cPath += ";C:\SolidWorks\"
+$cPath +="$env:SystemDrive\SolidWorks\"
+
+$cPath
+
+#Here is how you create the system variable and its value
+
+[Environment]::SetEnvironmentVariable("LM_LICENSE_FILE", "This is a permanent variable.",27000@test.university.com "")
